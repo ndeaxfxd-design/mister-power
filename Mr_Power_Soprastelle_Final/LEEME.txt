@@ -1,0 +1,10 @@
+MR. POWER ANTIGRASA - SOPRASTELLE
+
+Esta es la version final aprobada de la pagina. No se modifico el HTML.
+
+Para abrirla en Visual Studio Code:
+1. Abri la carpeta Mr_Power_Soprastelle_Final.
+2. Abri index.html.
+3. Usa Live Server o hace doble clic en index.html para verla en el navegador.
+
+Las imagenes, el logo y los estilos ya vienen incluidos dentro de index.html.
