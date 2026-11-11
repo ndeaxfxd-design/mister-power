@@ -313,6 +313,61 @@ h1,h2,h3 { font-family:'Trebuchet MS','Cabin','Segoe UI',Arial,sans-serif; font-
  .hero-description{font-size:15.5px;line-height:1.5}
  .hero-actions .button{font-size:12px;padding:11px 15px;min-height:45px}
 }
+
+/* Ficha comercial · editorial limpia, integrada en la tabla aprobada */
+.ficha-editorial{background:#fff;color:#173457}
+.ficha-editorial-overview{display:grid;grid-template-columns:.98fr 1.02fr;gap:0;padding:45px 45px 43px}
+.ficha-editorial-description,.ficha-editorial-properties{min-width:0}
+.ficha-editorial-description{padding-right:53px}
+.ficha-editorial-properties{padding-left:53px;border-left:1px solid #dae4ee}
+.ficha-kicker{display:inline-block;color:#1769ac;font-size:12px;font-weight:800;letter-spacing:.13em;margin:0 0 11px;line-height:1.3}
+.ficha-editorial h3{font-family:inherit;font-size:clamp(23px,2.2vw,29px);line-height:1.23;font-weight:730;letter-spacing:-.025em;color:#103866;margin:0 0 19px}
+.ficha-editorial-description p{font-size:17px;line-height:1.75;color:#43566e;margin:0;max-width:530px}
+.ficha-editorial-properties ul{padding:0;margin:0;list-style:none}
+.ficha-editorial-properties li{font-size:16.5px;line-height:1.55;color:#43566e;margin:0;padding:9px 0 9px 21px;border-top:1px solid #e7edf4;position:relative}
+.ficha-editorial-properties li:first-child{border-top:0;padding-top:0}
+.ficha-editorial-properties li:before{content:'';position:absolute;width:7px;height:7px;border-radius:50%;background:#e92b3f;left:1px;top:19px}
+.ficha-editorial-properties li:first-child:before{top:10px}
+.ficha-editorial-usage{border-top:1px solid #dae4ee;background:#f5f8fb;display:grid;grid-template-columns:25% 1fr;gap:38px;padding:40px 45px 43px}
+.ficha-usage-intro h3{margin-bottom:11px}
+.ficha-usage-intro p{color:#60758b;font-size:15.5px;line-height:1.65;margin:0;max-width:205px}
+.ficha-usage-list{padding:0;margin:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:38px;row-gap:25px;counter-reset:none}
+.ficha-usage-list li{display:grid;grid-template-columns:35px 1fr;gap:13px;min-width:0;align-items:start;font-size:15.7px;color:#40566f;line-height:1.55}
+.ficha-number{font-size:22px;font-weight:750;line-height:1.05;color:#146eb6;letter-spacing:-.045em}
+.ficha-editorial + .tech-card-top{border-top:1px solid #dae4ee}
+@media(max-width:900px){
+ .ficha-editorial-overview{padding:34px 29px;gap:0}
+ .ficha-editorial-description{padding-right:28px}
+ .ficha-editorial-properties{padding-left:28px}
+ .ficha-editorial-usage{grid-template-columns:1fr;gap:22px;padding:33px 29px}
+ .ficha-usage-intro p{max-width:none}
+}
+@media(max-width:650px){
+ .ficha-editorial-overview{display:block;padding:28px 22px 27px}
+ .ficha-editorial-description{padding:0 0 27px;border:0}
+ .ficha-editorial-properties{border-top:1px solid #dae4ee;border-left:0;padding:26px 0 0}
+ .ficha-editorial h3{font-size:23px;margin-bottom:13px}
+ .ficha-editorial-description p{font-size:15.8px;line-height:1.67}
+ .ficha-editorial-properties li{font-size:15.5px;line-height:1.58;padding-top:11px;padding-bottom:11px}
+ .ficha-editorial-usage{padding:28px 22px 31px;gap:22px}
+ .ficha-usage-list{grid-template-columns:1fr;gap:19px}
+ .ficha-usage-list li{font-size:15.5px;line-height:1.62;grid-template-columns:34px 1fr;gap:12px}
+ .ficha-number{font-size:21px}
+}
+@media print{
+ .ficha-editorial{color:#000!important}
+ .ficha-editorial-overview{padding:18px 20px;grid-template-columns:1fr 1fr}
+ .ficha-editorial-description{padding-right:20px}
+ .ficha-editorial-properties{padding-left:20px}
+ .ficha-editorial h3{color:#000;font-size:18px}
+ .ficha-kicker{color:#333}
+ .ficha-editorial-description p,.ficha-editorial-properties li,.ficha-usage-list li{color:#222;font-size:11px;line-height:1.45}
+ .ficha-editorial-usage{background:#fff!important;display:grid;grid-template-columns:22% 1fr;padding:14px 20px;gap:22px}
+ .ficha-usage-list{grid-template-columns:1fr 1fr;row-gap:10px}
+ .ficha-number{font-size:14px;color:#333}
+ .ficha-usage-intro p{font-size:10px}
+}
+
 </style>
 </head>
 <body>
@@ -426,8 +481,42 @@ h1,h2,h3 { font-family:'Trebuchet MS','Cabin','Segoe UI',Arial,sans-serif; font-
 </section>
 <section aria-labelledby="techTitle" class="tech-section" id="ficha">
 <div class="container">
-<div class="tech-intro"><h2 id="techTitle">Ficha técnica de Mr. Power.</h2><p>Características del producto de manera clara, sin revelar la formulación ni las cantidades de materias primas.</p></div>
-<div class="tech-card"><div class="tech-card-top"><h3>Características fisicoquímicas</h3><button class="print-button" onclick="window.print()" type="button">Imprimir ficha</button></div>
+<div class="tech-intro"><h2 id="techTitle">Ficha técnica de Mr. Power.</h2><p>Información del producto, sus propiedades de limpieza y recomendaciones para utilizarlo correctamente.</p></div>
+<div class="tech-card">
+      <!-- Información del producto integrada a la misma ficha, sin tarjetas independientes -->
+      <div class="ficha-editorial" aria-label="Información de Mr. Power Antigrasa">
+        <div class="ficha-editorial-overview">
+          <section class="ficha-editorial-description" aria-labelledby="fichaDescripcion">
+            <span class="ficha-kicker">EL PRODUCTO</span>
+            <h3 id="fichaDescripcion">Descripción del producto</h3>
+            <p>Producto líquido de limpieza formulado para ayudar a remover grasas, aceites y suciedad adherida en superficies lavables. Su formulación contiene agentes tensioactivos y solventes que contribuyen a la acción desengrasante.</p>
+          </section>
+          <section class="ficha-editorial-properties" aria-labelledby="fichaPropiedades">
+            <span class="ficha-kicker">SUS CARACTERÍSTICAS</span>
+            <h3 id="fichaPropiedades">Propiedades del producto</h3>
+            <ul>
+              <li>Ayuda a remover grasas y aceites de superficies lavables.</li>
+              <li>Contiene agentes tensioactivos que contribuyen a la limpieza.</li>
+              <li>Contiene solventes que favorecen la remoción de suciedad grasa.</li>
+              <li>Presenta fragancia a limón.</li>
+            </ul>
+          </section>
+        </div>
+        <section class="ficha-editorial-usage" aria-labelledby="fichaModoUso">
+          <div class="ficha-usage-intro">
+            <span class="ficha-kicker">APLICACIÓN</span>
+            <h3 id="fichaModoUso">Modo de uso</h3>
+            <p>Cuatro pasos para una limpieza adecuada.</p>
+          </div>
+          <ol class="ficha-usage-list">
+            <li><span class="ficha-number" aria-hidden="true">01</span><span>Aplicar el producto sobre la superficie a limpiar, evitando generar nieblas o aerosoles.</span></li>
+            <li><span class="ficha-number" aria-hidden="true">02</span><span>Dejar actuar durante un tiempo que deberá establecerse mediante ensayos de eficacia.</span></li>
+            <li><span class="ficha-number" aria-hidden="true">03</span><span>Frotar con una esponja, paño o cepillo cuando sea necesario.</span></li>
+            <li><span class="ficha-number" aria-hidden="true">04</span><span>Retirar los residuos con un paño húmedo o enjuagar con agua, según la superficie y el uso previsto.</span></li>
+          </ol>
+        </section>
+      </div>
+<div class="tech-card-top"><h3>Características fisicoquímicas</h3><button class="print-button" onclick="window.print()" type="button">Imprimir ficha</button></div>
 <table class="tech-table"><tbody>
 <tr><th scope="row">Nombre comercial</th><td>Mr. Power Antigrasa</td></tr>
 <tr><th scope="row">Tipo</th><td>Limpiador desengrasante</td></tr>
